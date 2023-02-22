@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style_login.css">
 </head>
 <body>
-    <?php 
+<?php 
         include '../connect_db.php';
     ?>
     <header>
@@ -31,7 +31,7 @@
                         <a class="nav-link" href="../index.php">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="category.php">Thể loại</a>
+                        <a class="nav-link" href="category.php">Thể loại</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active fw-bold" href="author.php">Tác giả</a>
@@ -45,50 +45,37 @@
         </nav>
 
     </header>
-
-
     <main class="container mt-5 mb-5">
-        <?php 
-            $sql = "select * from tacgia";
-            $result = mysqli_query($con,$sql);
 
-        
-        ?>
+    <?php 
+        $matgia = $_GET['matgia'];
+        $sql = "SELECT * 
+        FROM tacgia
+        Where ma_tgia = '$matgia'";
+        $result = mysqli_query($con, $sql);
+        $row = mysqli_fetch_assoc($result);
+     
+    ?>
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
-                <a href="add_author.php" class="btn btn-success">Thêm mới</a>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tên tác giả</th>
-                            <th>Sửa</th>
-                            <th>Xóa</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                            while($row = mysqli_fetch_assoc($result)){
-          
-                        ?>
-                        <tr>
-                            <th scope="row"><?php echo $row['ma_tgia']?></th>
-                            <td><?php echo $row['ten_tgia']?></td>
-                            <td>
-                                <a href="edit_author.php?matgia=<?php echo $row['ma_tgia']?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                            </td>
-                            <td>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                            <?php  
-                            }
-                            ?>
-                      
-                       
-                    </tbody>
-                </table>
+                <h3 class="text-center text-uppercase fw-bold">Sửa thông tin tác giả</h3>
+                <form action="process_add_category.php" method="post">
+                <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatId">Mã tác giả</span>
+                        <input type="text" class="form-control" name="txt_matgia" readonly value=" <?php echo $row['ma_tgia'] ?>">
+                    </div>
+
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Tên tác giả</span>
+                        <input type="text" class="form-control" name="txt_tentgia" value = " <?php echo $row['ten_tgia']?>">
+                    </div>
+
+                    <div class="form-group  float-end ">
+                        <input type="submit" value="Lưu lại" class="btn btn-success">
+                        <a href="category.php" class="btn btn-warning ">Quay lại</a>
+                    </div>
+                </form>
             </div>
         </div>
     </main>

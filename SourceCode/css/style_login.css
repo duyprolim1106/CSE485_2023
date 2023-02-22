@@ -1,76 +1,212 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
-
-.card{
-height: 370px;
-margin-top: auto;
-margin-bottom: auto;
-width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
+body{
+    background-color: #c8e1e4;
 }
 
-.social_icon span{
-font-size: 60px;
-margin-left: 10px;
-color: #FFC312;
+header{
+    background-color:#6ccee9;
 }
 
-.social_icon span:hover{
-color: white;
-cursor: pointer;
+ 
+.social_icon span {
+    margin-top: 30px;
+}
+.card {
+    height: 370px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
-.card-header h3{
-color: white;
+.social_icon span {
+    font-size: 60px;
+    margin-left: 10px;
+    color: #FFC312;
 }
 
-.social_icon{
-position: absolute;
-right: 20px;
-top: -45px;
+.social_icon span:hover {
+    color: white;
+    cursor: pointer;
 }
 
-.input-group-prepend span{
-width: 50px;
-background-color: #FFC312;
-color: black;
-border:0 !important;
+.card-header h3 {
+    color: white;
 }
 
-input:focus{
-outline: 0 0 0 0  !important;
-box-shadow: 0 0 0 0 !important;
+.social_icon {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+
+.input-group-prepend span {
+    width: 50px;
+    background-color: #FFC312;
+    color: black;
+    border: 0 !important;
+}
+
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
 
 }
 
-.remember{
-color: white;
+.remember {
+    color: white;
 }
 
-.remember input
-{
-width: 20px;
-height: 20px;
-margin-left: 15px;
-margin-right: 5px;
+.remember input {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
 }
 
-.login_btn{
-color: black;
-background-color: #FFC312;
-width: 100px;
+
+.buton_login {
+    margin-left: 250px;
+    padding: 0.8em 1.8em;
+    border: 2px solid #17C3B2;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 7%;
+    font-size: 10px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: #17C3B2;
 }
 
-.login_btn:hover{
-color: black;
-background-color: white;
+.buton_login::before {
+    content: '';
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: #17C3B2;
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
 }
 
-.links{
-color: white;
+.buton_login:hover::before {
+    width: 105%;
 }
 
-.links a{
-margin-left: 4px;
-text-decoration:none;
+.buton_login:hover {
+    color: #111;
+
 }
+    .links {
+        color: white;
+    }
+
+    .links a {
+        margin-left: 4px;
+        text-decoration: none;
+    }
+
+
+    
+    .form-controll {
+        position: relative;
+        margin: 20px 90px 40px 40px;
+        width: 300px;
+      }
+      
+      .form-controll input {
+        background-color: transparent;
+        border: 0;
+        border-bottom: 2px #fff solid;
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+        font-size: 18px;
+        color: #fff;
+      }
+      
+      .form-controll input:focus,
+      .form-controll input:valid {
+        outline: 0;
+        border-bottom-color: lightblue;
+      }
+      
+      .form-controll label {
+        position: absolute;
+        top: 15px;
+        left: 0;
+        pointer-events: none;
+      }
+      
+      .form-controll label span {
+        display: inline-block;
+        font-size: 18px;
+        min-width: 5px;
+        color: #fff;
+        transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      
+      .form-controll input:focus+label span,
+      .form-controll input:valid+label span {
+        color: rgb(18, 64, 202);
+        transform: translateY(-30px);
+      }
+
+      .img-fluid{
+        height: 120px;
+      }
+
+
+
+
+
+
+
+
+      button {
+        width: 100px;
+        margin-right: 60px;
+        padding: 0.8em 1.8em;
+        border: 2px solid #17C3B2;
+        position: relative;
+        overflow: hidden;
+        background-color: transparent;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 16px;
+        transition: .3s;
+        z-index: 1;
+        font-family: inherit;
+        color: #17C3B2;
+       }
+       
+       button::before {
+        content: '';
+        width: 0;
+        height: 300%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        background: #17C3B2;
+        transition: .5s ease;
+        display: block;
+        z-index: -1;
+       }
+       
+       button:hover::before {
+        width: 105%;
+       }
+       
+       button:hover {
+        color: #111;
+       }
+       

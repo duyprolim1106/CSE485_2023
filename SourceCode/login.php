@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="css/style_login.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
+    <header >
+        <nav class=" navbar navbar-expand-lg  shadow p-3 bg-red rounded">
             <div class="container-fluid">
                 <div class="my-logo">
                     <a class="navbar-brand" href="#">
-                        <img src="images/logo2.png" alt="" class="img-fluid">
+                        <img src="images/Screenshot_2023-02-22_201910-removebg-preview.png" alt="" class="img-fluid">
                     </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,8 +30,13 @@
                     <a class="nav-link active" href="./login.php">Đăng nhập</a>
                     </li>
                 </ul>
+                <div class="form-controll">
+    <input type="value" required="">
+    <label>
+        <span style="transition-delay:0ms">S</span><span style="transition-delay:50ms">e</span><span style="transition-delay:100ms">a</span><span style="transition-delay:150ms">r</span><span style="transition-delay:200ms">c</span><span style="transition-delay:250ms">h</span><span style="transition-delay:300ms">.</span><span style="transition-delay:350ms">.</span><span style="transition-delay:400ms">.</span><span style="transition-delay:450ms">.</span>
+    </label>
+</div>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Tìm</button>
                 </form>
                 </div>
@@ -67,7 +72,10 @@
                                 <input type="checkbox">Remember Me
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Login" class="btn float-end login_btn">
+                                <button class =" buton_login">
+                                    <input type="submit" value="Login" class="btn float-end login_btn">
+                                </button>
+                                
                             </div>
                         </form>
                     </div>
