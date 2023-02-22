@@ -48,7 +48,7 @@ $tieude = $_GET['tieude'];
     FROM baiviet
     INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia
     INNER JOIN theloai ON theloai.ma_tloai = baiviet.ma_tloai
-    WHERE tieude = $tieude
+    WHERE tieude = '$tieude'
     ";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
