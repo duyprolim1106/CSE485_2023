@@ -1,3 +1,6 @@
+<?php     
+    $ma_bviet = $_GET["ma_bviet"];
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +13,7 @@
     <link rel="stylesheet" href="css/style_login.css">
 </head>
 <body>
-<?php include '../connect_db.php' ?>
-
+    <?php include '../connect_db.php' ?>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
             <div class="container-fluid">
@@ -30,7 +32,7 @@
                         <a class="nav-link" href="../index.php">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="category.php">Thể loại</a>
+                        <a class="nav-link" href="category.php">Thể loại</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="author.php">Tác giả</a>
@@ -50,8 +52,7 @@
     FROM baiviet
     INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia
     INNER JOIN theloai ON theloai.ma_tloai = baiviet.ma_tloai
-    
-    ";
+    Where baiviet.ma_bviet = '$ma_bviet'";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
    
@@ -60,43 +61,51 @@
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
-                <a href="add_article.php" class="btn btn-success">Thêm mới</a>
-                <table class="table">
-                    <thead>
-                        
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tên Tiêu Đề</th>
-                            <th scope="col">Tên Bài Hát</th>
-                            <th scope="col">Tên Tác Giả</th>
-                            
-                            <th>Sửa</th>
-                            <th>Xóa</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    while($row=mysqli_fetch_assoc($result)){
+                <h3 class="text-center text-uppercase fw-bold">Sửa thông tin bài viết</h3>
+                <form action="process_add_article.php" method="post">
+                <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatId">Mã tiêu đề</span>
+                        <input type="text" class="form-control" name="txt_mabviet" value="<?php echo $row['ma_bviet'] ?>" >
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Tên tiêu đề</span>
+                        <input type="text" class="form-control" name="txt_tieude" value="<?php echo $row['tieude'] ?>">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Tên bài hát</span>
+                        <input type="text" class="form-control" name="txt_tenbhat" value="<?php echo $row['ten_bhat'] ?>">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Tóm tắt</span>
+                        <input type="text" class="form-control" name="txt_tomtat" value="<?php echo $row['tomtat'] ?>">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Nội dung</span>
+                        <input type="text" class="form-control" name="txt_noidung" value="<?php echo $row['noidung'] ?>">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Tên tác giả</span>
+                        <input type="text" class="form-control" name="ma_tgia" value="<?php echo $row['ma_tgia'] ?>">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Ngày viết</span>
+                        <input type="date" id="date-input" name="date-input">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text" id="lblCatName">Hình ảnh</span>
+                         <input type="file" id="file-upload" name="file-upload">
+                    </div>
 
-                    
-                    ?>
-                        
-                        <tr>
-                            <th scope="row"><?php echo $row['ma_bviet'] ?></th>
-                            <td><?php echo $row['tieude'] ?></td>
-                            <td><?php echo $row['ten_bhat'] ?></td>
-                            <td><?php echo $row['ten_tgia'] ?></td>
-                            <td>
-                                <a href="edit_article.php?ma_bviet=<?php echo $row['ma_bviet'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                            </td>
-                            <td>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                    <?php  }?>
-                       
-                    </tbody>
-                </table>
+                    <div class="form-group  float-end ">
+                        <input type="submit" value="Thêm" class="btn btn-success">
+                        <a href="article.php" class="btn btn-warning ">Quay lại</a>
+                    </div>
+
+                    <div class="form-group  float-end ">
+                        <input type="submit" value="Lưu lại" class="btn btn-success">
+                        <a href="article.php" class="btn btn-warning ">Quay lại</a>
+                    </div>
+                </form>
             </div>
         </div>
     </main>
