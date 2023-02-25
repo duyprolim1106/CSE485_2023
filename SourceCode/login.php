@@ -29,10 +29,7 @@ include 'header.php';
                         <input type="checkbox">Remember Me
                     </div>
                     <div class="form-group">
-                        <button class=" buton_login">
-                            <input type="submit" value="Login" class="btn float-end login_btn">
-                        </button>
-
+                    <button class = "button_login">UIVERSE</button>
                     </div>
                 </form>
             </div>
