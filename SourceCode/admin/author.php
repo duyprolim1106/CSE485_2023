@@ -1,14 +1,12 @@
 <?php
-    include 'components/header_admin.php'; 
-    include '../connect_db.php';
+include 'components/header_admin.php';
+include '../connect_db.php';
 ?>
-    <main class="container mt-5 mb-5">
-        <?php 
-            $sql = "select * from tacgia";
-            $result = mysqli_query($con,$sql);
-
-        
-        ?>
+<main class="container mt-5 mb-5">
+    <?php
+    $sql = "select * from tacgia";
+    $result = mysqli_query($con, $sql);
+    ?>
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
@@ -34,7 +32,7 @@
                                 <a href="edit_author.php?matgia=<?php echo $row['ma_tgia']?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
+                                <a href="process_components/process_delete_author.php?matgia=<?php echo $row['ma_tgia']?>"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                             <?php  
