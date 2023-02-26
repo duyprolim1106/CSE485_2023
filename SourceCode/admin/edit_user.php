@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Sửa thông tin tài khoản người dùng</h3>
-                <form action="process_edit_users.php" method="post">
+                <form action="process_components/process_edit_users.php" method="post">
                 <input type="text" class="form-control" name="txt_idngdung" readonly hidden value=" <?php echo $row['id_ngdung'] ?>">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">Tài khoản người dùng</span>
