@@ -2,7 +2,6 @@
 include 'header.php';
 ?>
 <main class="container mt-5 mb-5">
-    <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
     <div class="d-flex justify-content-center h-100">
         <div class="card">
             <div class="card-header">
@@ -19,17 +18,15 @@ include 'header.php';
                         <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
                         <input type="text" class="form-control" placeholder="username">
                     </div>
-
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
                         <input type="text" class="form-control" placeholder="password">
                     </div>
-
                     <div class="row align-items-center remember">
                         <input type="checkbox">Remember Me
                     </div>
                     <div class="form-group">
-                    <button class = "button_login">UIVERSE</button>
+                        <button class="button_login">Login</button>
                     </div>
                 </form>
             </div>
