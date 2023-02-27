@@ -11,7 +11,7 @@
     
     ";
     $result = mysqli_query($con, $sql);
-    $row = mysqli_fetch_assoc($result);
+
    
    
      ?>
@@ -34,11 +34,8 @@
                     </thead>
                     <tbody>
                     <?php
-                    while($row=mysqli_fetch_assoc($result)){
-
-                    
-                    ?>
-                        
+                    while($row=mysqli_fetch_assoc($result)){     
+                    ?>                       
                         <tr>
                             <th scope="row"><?php echo $row['ma_bviet'] ?></th>
                             <td><?php echo $row['tieude'] ?></td>
@@ -47,8 +44,8 @@
                             <td>
                                 <a href="edit_article.php?ma_bviet=<?php echo $row['ma_bviet'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
-                            <td>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
+                            <td>                                
+                                <a href="process_components/process_delete_article.php?mabviet=<?php echo $row['ma_bviet']?>"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php  }?>
