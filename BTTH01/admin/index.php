@@ -1,8 +1,14 @@
 <?php
     include 'components/header_admin.php';
+    include '../connect_db.php';
+    if(!$_SESSION['login']) {
+        header("Location:../login.php");
+    }
+    if($_SESSION['login'] && $_SESSION['login']!='admin') {
+        header("Location:../index.php");
+    }
 ?>
     <main class="container mt-5 mb-5">
-        <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm-3">
                 <div class="card mb-2" style="width: 100%;">
