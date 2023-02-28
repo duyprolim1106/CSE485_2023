@@ -2,6 +2,8 @@
     include 'components/header_admin.php'; 
     include '../connect_db.php';
 ?>
+<body>
+        <main class="container mt-5 mb-5">
     <main class="container mt-5 mb-5">
 
     <?php     
@@ -48,6 +50,7 @@
                         </select>
                     </div>
                     <div class="input-group mt-3 mb-3">
+
                         <span class="input-group-text" id="lblCatName">Tóm tắt</span>
                         <input type="text" class="form-control" id="InputCDN" name="txt_tomtat" value="<?php echo $article['tomtat'] ?>">
                         
@@ -80,31 +83,23 @@
                         </select>
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Ngày viết</span>
-                        <input type="date" id="date-input" name="ngayviet" <?php echo $article['ngayviet'] ?>>
+                        <span style = "padding: 0px 20px 0px 20px" class="input-group-text" id="lblCatName">Ngày viết</span>
+                        <input type="text" id="date-input" name="date-input" name="Y-m-d H:i:s" value="<?php  echo $article['ngayviet'] ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                    <span class="input-group-text" id="lblCatName">Hình ảnh</span>
-                         <input type="file" id="file-upload" name="hinhanh" <?php echo $article['hinhanh'] ?>>
+                    <span style = "padding: 0px 20px 0px 20px" class="input-group-text" id="lblCatName">Hình ảnh</span>
+                         <input type="file" id="file-upload" name="file-upload" value="<?php  echo $article['hinhanh'] ?>">
                     </div>
 
                     <div class="form-group  float-end ">
-                        <input type="submit" value="Lưu" class="btn btn-success">
+                        <input type="submit" value="Sửa" class="btn btn-success">
                         <a href="article.php" class="btn btn-warning ">Quay lại</a>
                     </div>
-
-                    
                 </form>
             </div>
-        </div>
-    </main>
-    <script>
-    ClassicEditor
-        .create( document.querySelector( '#InputCDN' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-</script>
+</div>
+              </main>
+
 <?php
     include 'components/footer_admin.php';
 ?>

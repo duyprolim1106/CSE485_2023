@@ -40,7 +40,7 @@
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tóm tắt</span>
-                        <input type="text" class="form-control" id="InputCDN" name="txt_tomtat" >
+                        <input type="text" class="form-control"  name="txt_tomtat" >
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Nội dung</span>
@@ -72,13 +72,6 @@
             </div>
         </div>
     </main>
-    <script>
-    ClassicEditor
-        .create( document.querySelector( '#InputCDN' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-</script>
 <?php
     include 'components/footer_admin.php';
 ?>
