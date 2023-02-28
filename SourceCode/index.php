@@ -34,7 +34,6 @@ include 'header.php';
 </div>
 <main class="container-fluid mt-3">
     <h3 class="text-center text-uppercase mb-3 text-primary">TOP bài hát yêu thích</h3>
-
     <div class="row">
         <?php
         $sql = "SELECT hinhanh, tieude FROM baiviet";
@@ -42,18 +41,18 @@ include 'header.php';
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 ?>
-        <div class="col-sm-3">
-            <div class="card mb-2" style="width: 100%; height: 250px;">
-                <img src="<?php echo $row['hinhanh'] ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title text-center">
-                        <a href="./detail.php?tieude=<?php echo $row['tieude']; ?>" class="text-decoration-none"><?php
+                <div class="col-sm-3">
+                    <div class="card mb-2" style="width: 100%; height: 250px;">
+                        <img src="<?php echo $row['hinhanh'] ?>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">
+                                <a href="./detail.php?tieude=<?php echo $row['tieude']; ?>" class="text-decoration-none"><?php
                                    echo $row['tieude']; ?></a>
-                    </h5>
+                            </h5>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <?php
+                <?php
             }
         }
         ?>
