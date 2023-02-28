@@ -72,7 +72,6 @@
             </div>
         </div>
     </main>
-   
 <?php
     include 'components/footer_admin.php';
 ?>

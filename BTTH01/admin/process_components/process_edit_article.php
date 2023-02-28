@@ -2,7 +2,7 @@
     include '../../connect_db.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $mabviet = $_POST['txt_mabviet'];
+        $mabviet = $_POST['ma_bviet'];
         $tenTieuDe = $_POST['txt_tieude'];
         $tenBaiHat = $_POST['txt_tenbhat'];
         $maTheLoai = $_POST['txt_theloai'];
@@ -22,6 +22,7 @@
         $sql = "UPDATE `baiviet` SET `tieude` = '$tenTieuDe', `ten_bhat` = '$tenBaiHat', `ma_tloai` = '$maTheLoai' , `tomtat` = '$tomTat',
                      `noidung` = '$noiDung' , `ma_tgia` = '$maTacGia' , `ngayviet` = '$ngayViet' , `hinhanh` = '$link$hinhAnh'
                 WHERE `ma_bviet` = '$mabviet' ";
+
         $result = mysqli_query($con,$sql);
         header('Location:../article.php');
         exit();
