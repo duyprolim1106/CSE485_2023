@@ -2,30 +2,34 @@
     include 'components/header_admin.php'; 
     include '../connect_db.php';
 ?>
-    <main class="container mt-5 mb-5">
+<body>
+        <main class="container mt-5 mb-5">
 
-    <?php     
-        $ma_bviet = $_GET["ma_bviet"];
-        $sql = "SELECT baiviet.*,theloai.ten_tloai, tacgia.ten_tgia FROM baiviet, theloai, tacgia WHERE baiviet.ma_tgia = tacgia.ma_tgia AND baiviet.ma_tloai = theloai.ma_tloai AND baiviet.ma_bviet = $ma_bviet;";
-        $result = mysqli_query($con, $sql);
-        $article = mysqli_fetch_assoc($result);
-    ?>
+        <?php     
+                $ma_bviet = $_GET["ma_bviet"];
+                $sql = "SELECT baiviet.*,theloai.ten_tloai, tacgia.ten_tgia FROM baiviet, theloai, tacgia WHERE baiviet.ma_tgia = tacgia.ma_tgia AND baiviet.ma_tloai = theloai.ma_tloai AND baiviet.ma_bviet = $ma_bviet;";
+                $result = mysqli_query($con, $sql);
+                $article = mysqli_fetch_assoc($result);
+        ?>
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
-                <h3 class="text-center text-uppercase fw-bold">Sửa thông tin bài viết</h3>
-                <form action="process_components/process_edit_article.php" enctype="multipart/from-data" method="post">
-                <input type="text" name="ma_bviet" value="<?php echo $row['ma_bviet'] ?> " hidden >
+                <h3 class="text-center text-uppercase fw-bold">Sửa thông tin bài hát</h3>
+                <form action="process_components/process_edit_article.php" enctype="multipart/form-data" method="post">
                     <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatId">Mã bài viết</span>
+                        <input type="text" class="form-control" name="txt_mabviet" readonly value="<?php  echo $article['ma_bviet'] ?>">
+                    </div>
+                    <div   div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên tiêu đề</span>
-                        <input type="text" class="form-control" name="txt_tieude" value="<?php echo $article['tieude'] ?>">
+                        <input type="text" class="form-control" name="txt_tieude" value="<?php  echo $article['tieude'] ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên bài hát</span>
-                        <input type="text" class="form-control" name="txt_tenbhat" value="<?php echo $article['ten_bhat'] ?>">
+                        <input type="text" class="form-control" name="txt_tenbhat" value="<?php  echo $article['ten_bhat'] ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Thể loại</span>
+                        <span class="input-group-text" id="lblCatName">Mã thể loại</span>
                         <select class="form-select" name="txt_theloai" >
                             <?php
                             // Kết nối tới database
@@ -48,17 +52,16 @@
                         </select>
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Tóm tắt</span>
-                        <input type="text" class="form-control" id="InputCDN" name="txt_tomtat" value="<?php echo $article['tomtat'] ?>">
-                        
+                        <span style = "padding: 0px 25px 0px 25px" class="input-group-text" id="lblCatName">Tóm tắt</span>
+                        <input type="text" class="form-control"  name="tomtat" value="<?php  echo $article['tomtat'] ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Nội dung</span>
-                        <input type="text" class="form-control" name="txt_noidung"  value="<?php echo $article['noidung'] ?>">
+                        <span style = "padding: 0px 20px 0px 20px" class="input-group-text" id="lblCatName">Nội dung</span>
+                        <input type="text" class="form-control" name="noidung'" value="<?php  echo $article['noidung'] ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Tên tác giả</span>
-                        <select class="form-select" name="txt_tacgia" >
+                        <span style = "padding: 0px 17px 0px 17px" class="input-group-text" id="lblCatName">Mã tác giả</span>
+                        <select class="form-select" name="txt_matacgia" >
                             <?php
                             // Kết nối tới database
                             $con = mysqli_connect('localhost', 'root', '', 'btth01_cse485');
@@ -80,31 +83,23 @@
                         </select>
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Ngày viết</span>
-                        <input type="date" id="date-input" name="ngayviet" <?php echo $article['ngayviet'] ?>>
+                        <span style = "padding: 0px 20px 0px 20px" class="input-group-text" id="lblCatName">Ngày viết</span>
+                        <input type="text" id="date-input" name="date-input" name="Y-m-d H:i:s" value="<?php  echo $article['ngayviet'] ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                    <span class="input-group-text" id="lblCatName">Hình ảnh</span>
-                         <input type="file" id="file-upload" name="hinhanh" <?php echo $article['hinhanh'] ?>>
+                    <span style = "padding: 0px 20px 0px 20px" class="input-group-text" id="lblCatName">Hình ảnh</span>
+                         <input type="file" id="file-upload" name="file-upload" value="<?php  echo $article['hinhanh'] ?>">
                     </div>
 
                     <div class="form-group  float-end ">
-                        <input type="submit" value="Lưu" class="btn btn-success">
+                        <input type="submit" value="Sửa" class="btn btn-success">
                         <a href="article.php" class="btn btn-warning ">Quay lại</a>
                     </div>
-
-                    
                 </form>
             </div>
-        </div>
-    </main>
-    <script>
-    ClassicEditor
-        .create( document.querySelector( '#InputCDN' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-</script>
+</div>
+              </main>
+
 <?php
     include 'components/footer_admin.php';
 ?>
